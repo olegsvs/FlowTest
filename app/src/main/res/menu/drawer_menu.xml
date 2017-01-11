@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/calc_list"
+          android:icon="@drawable/ic_list"
+          android:title="Список"/>
+
+    <item android:id="@+id/new_calc"
+          android:icon="@drawable/ic_add_circle"
+          android:title="Новый расчет"/>
+
+    <item android:id="@+id/settings"
+          android:icon="@drawable/ic_setting"
+          android:title="Настройки"/>
+
+</menu>

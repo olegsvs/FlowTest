@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FlowTest</string>
+
+    <string name="open_drawer">open_drawer</string>
+    <string name="close_drawer">close_drawer</string>
+
+    <string name="calc_title">Расчет</string>
+    <string name="graphic_title">График</string>
+    <string name="list_title">Списск</string>
+    <string name="setting_title">Настройки</string>
+</resources>

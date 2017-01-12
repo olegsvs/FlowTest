@@ -9,7 +9,7 @@ import ru.dmisb.flowtest.databinding.ScreenListBinding;
 import ru.dmisb.flowtest.screens.base.BaseView;
 import ru.dmisb.flowtest.ui.helpers.IView;
 
-public class ListView extends BaseView implements IView {
+public class ListView extends BaseView<ListScreen> implements IView {
 
     private ListModel mModel;
     private ScreenListBinding mBinding;

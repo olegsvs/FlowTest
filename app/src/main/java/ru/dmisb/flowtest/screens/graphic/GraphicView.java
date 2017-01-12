@@ -9,7 +9,7 @@ import ru.dmisb.flowtest.databinding.ScreenGraphicBinding;
 import ru.dmisb.flowtest.screens.base.BaseView;
 import ru.dmisb.flowtest.ui.helpers.IView;
 
-public class GraphicView extends BaseView implements IView {
+public class GraphicView extends BaseView<GraphicScreen> implements IView {
 
     private GraphicModel mModel;
     private ScreenGraphicBinding mBinding;

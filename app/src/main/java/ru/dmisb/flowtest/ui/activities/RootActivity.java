@@ -2,6 +2,7 @@ package ru.dmisb.flowtest.ui.activities;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -10,7 +11,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 
 import flow.Direction;
@@ -18,7 +18,6 @@ import flow.Flow;
 import ru.dmisb.flowtest.R;
 import ru.dmisb.flowtest.databinding.ActivityRootBinding;
 import ru.dmisb.flowtest.flow.TreeKeyDispatcher;
-import ru.dmisb.flowtest.flow.TreeKeyParceler;
 import ru.dmisb.flowtest.screens.calc.CalcScreen;
 import ru.dmisb.flowtest.screens.list.ListScreen;
 import ru.dmisb.flowtest.ui.helpers.IActionBarView;
@@ -40,7 +39,6 @@ public class RootActivity extends AppCompatActivity
         setTheme(R.style.AppTheme);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_root);
         initToolbar();
-        initDrawer();
     }
 
     @Override
@@ -48,7 +46,7 @@ public class RootActivity extends AppCompatActivity
         newBase = Flow.configure(newBase, this)
                 .dispatcher(new TreeKeyDispatcher(this))
                 .defaultKey(new CalcScreen())
-                .keyParceler(new TreeKeyParceler())
+                //.keyParceler(new TreeKeyParceler())
                 .install();
         super.attachBaseContext(newBase);
     }
@@ -68,14 +66,12 @@ public class RootActivity extends AppCompatActivity
     private void initToolbar() {
         setSupportActionBar(mBinding.toolbar);
         mActionBar = getSupportActionBar();
-    }
-
-    private void initDrawer() {
         mToggle = new ActionBarDrawerToggle(this,
                 mBinding.drawerLayout,
                 mBinding.toolbar,
                 R.string.open_drawer,
                 R.string.close_drawer);
+        mBinding.drawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
     }
 
@@ -146,8 +142,8 @@ public class RootActivity extends AppCompatActivity
     public void updateToolBar() {
         IView view = (IView) mBinding.rootFrame.getChildAt(0);
         if (view != null) {
-            setBatTitle(getResources().getString(view.getBarTitleResId()));
             setBackArrowShow(view.getBackArrowShow());
+            setBatTitle(getResources().getString(view.getBarTitleResId()));
         }
     }
 

@@ -4,7 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
-public abstract class BaseView extends FrameLayout {
+import flow.ClassKey;
+import flow.Flow;
+
+public abstract class BaseView<S extends ClassKey> extends FrameLayout {
+
+    protected S mScreen;
 
     public BaseView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -14,6 +19,7 @@ public abstract class BaseView extends FrameLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         if (!isInEditMode()){
+            mScreen = Flow.getKey(this);
             bindScreen();
         }
     }
@@ -39,4 +45,5 @@ public abstract class BaseView extends FrameLayout {
     }
 
     protected abstract void detachListeners();
+
 }

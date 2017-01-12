@@ -17,7 +17,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/size_16"
+            android:layout_marginRight="@dimen/size_16">
 
             <TextView
                 android:id="@+id/calc_txt"
@@ -32,8 +34,28 @@
                 android:id="@+id/show_graphic_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/size_16"
+                android:layout_marginTop="@dimen/size_16"
                 android:text="График"/>
+
+            <EditText
+                android:id="@+id/calc_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_16"/>
+
+            <Button
+                android:id="@+id/magic_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_16"
+                android:text="Hide button"/>
+
+            <Button
+                android:id="@+id/hided_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_16"
+                android:text="Hided button"/>
 
         </LinearLayout>
 
